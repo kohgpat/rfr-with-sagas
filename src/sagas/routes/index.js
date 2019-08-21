@@ -1,18 +1,26 @@
-import { spawn, take } from "redux-saga/effects";
+import { spawn, take, select } from "redux-saga/effects";
 import homeSaga from "../home";
+import usersSaga from "../users";
+import { routeType } from "../../store/routing/selectors";
 
 const routesMap = {
-  HOME: homeSaga
+  HOME: homeSaga,
+  USER: usersSaga
 };
 
 export function* routes() {
-  console.log("routes saga");
+  const initialRoute = yield select(routeType);
 
-  yield spawn(routesMap.HOME);
+  console.log("routes saga - initialRoute: ", initialRoute);
+
+  if (routesMap[initialRoute]) {
+    yield spawn(routesMap[initialRoute]);
+  }
 
   while (true) {
     const { type } = yield take(Object.keys(routesMap));
     console.log("Object.keys: ", Object.keys(routesMap));
     console.log("type: ", type);
+    yield spawn(routesMap[type]);
   }
 }
