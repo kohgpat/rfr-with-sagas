@@ -1,17 +1,17 @@
-import React from 'react';
-import Home from './pages/Home';
-import User from './pages/User';
-import NotFound from './pages/NotFound';
+import React from "react";
+import Home from "./pages/Home";
+import User from "./pages/User";
+import NotFound from "./pages/NotFound";
 
 const Routes = ({ page }) => {
   let Component;
 
   switch (page) {
-    case 'Home': {
+    case "Home": {
       Component = Home;
       break;
     }
-    case 'User': {
+    case "User": {
       Component = User;
       break;
     }

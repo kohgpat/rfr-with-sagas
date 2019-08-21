@@ -2,7 +2,7 @@ import homeRouteThunk from "../../pages/Home/routeThunk";
 
 const routesMap = {
   HOME: {
-    path: '/',
+    path: "/",
     thunk: homeRouteThunk
   },
   USER: "/user/:id"
