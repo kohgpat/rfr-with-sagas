@@ -1,10 +1,11 @@
-import homeRouteThunk from "../../pages/Home/routeThunk";
+// import homeRouteThunk from "../../pages/Home/routeThunk";
 
 const routesMap = {
-  HOME: {
-    path: "/",
-    thunk: homeRouteThunk
-  },
+  HOME: "/",
+  // HOME: {
+  //   path: "/",
+  //   thunk: homeRouteThunk
+  // },
   USER: "/user/:id"
 };
 

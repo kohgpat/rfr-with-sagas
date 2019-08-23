@@ -10,8 +10,7 @@ import homeMiddleware from "./pages/Home/middleware";
 import rootSaga from "./sagas/rootSaga";
 // import rootReducer from "./store/rootReducer";
 import global from "./store/global";
-import globalThunk from "./globalThunk";
-// import homeRouteThunk from "./pages/Home/routeThunk";
+// import globalThunk from "./globalThunk";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -45,7 +44,7 @@ export default async function configureStore(preloadedState) {
 
   // store.dispatch({ type: "GLOBAL_INIT" });
 
-  await store.dispatch(globalThunk);
+  // await store.dispatch(globalThunk);
 
   // console.log("after dispatch: ", store.getState());
 

@@ -9,10 +9,10 @@ export function* init() {
 
   console.log("global saga init state: ", state);
 
-  console.log('global saga init started');
+  console.log("global saga init started");
 
   delay(1000).then(() => {
-    console.log('global saga - init delayed');
+    console.log("global saga - init delayed");
   });
 
   // const event = getInitialized(state);
