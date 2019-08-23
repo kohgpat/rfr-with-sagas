@@ -10,18 +10,19 @@ import homeMiddleware from "./pages/Home/middleware";
 import rootSaga from "./sagas/rootSaga";
 // import rootReducer from "./store/rootReducer";
 import global from "./store/global";
-import homeRouteThunk from "./pages/Home/routeThunk";
+import globalThunk from "./globalThunk";
+// import homeRouteThunk from "./pages/Home/routeThunk";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export default async function configureStore(preloadedState) {
-  const { reducer, middleware, enhancer, thunk } = connectRoutes(routesMap);
+  const { reducer, middleware, enhancer } = connectRoutes(routesMap);
 
   const devtools = window.__REDUX_DEVTOOLS_EXTENSION__
     ? window.__REDUX_DEVTOOLS_EXTENSION__()
     : f => f;
 
-  const middlewares = [middleware, thunk, sagaMiddleware, homeMiddleware];
+  const middlewares = [thunk, middleware, sagaMiddleware, homeMiddleware];
 
   // console.log('rootReducer: ', ...rootReducer());
 
@@ -44,7 +45,7 @@ export default async function configureStore(preloadedState) {
 
   // store.dispatch({ type: "GLOBAL_INIT" });
 
-  await store.dispatch(homeRouteThunk);
+  await store.dispatch(globalThunk);
 
   // console.log("after dispatch: ", store.getState());
 

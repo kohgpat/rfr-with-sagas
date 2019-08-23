@@ -1,23 +1,18 @@
-import { all, select, take } from "redux-saga/effects";
+import { all, select } from "redux-saga/effects";
 import { getInitialized } from "../store/global/selectors";
-
-function delay(t, v) {
-  return new Promise(function(resolve) {
-    setTimeout(resolve.bind(null, v), t);
-  });
-}
+import { delay } from "../utils";
 
 export function* init() {
   console.log("global saga - init");
 
   const state = yield select(getInitialized);
 
-  console.log("global saga - state: ", state);
+  console.log("global saga init state: ", state);
 
-  console.log('started');
+  console.log('global saga init started');
 
   delay(1000).then(() => {
-    console.log('delayed');
+    console.log('global saga - init delayed');
   });
 
   // const event = getInitialized(state);

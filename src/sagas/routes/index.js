@@ -13,9 +13,11 @@ export default function* routes() {
 
   console.log("routes saga - initialRoute: ", initialRoute);
 
-  if (routesMap[initialRoute]) {
-    yield fork(routesMap[initialRoute]);
-  }
+  // Should be commented for SSR
+  // Currently commented for SSR emulation
+  // if (routesMap[initialRoute]) {
+  //   yield fork(routesMap[initialRoute]);
+  // }
 
   while (true) {
     const { type } = yield take(Object.keys(routesMap));
