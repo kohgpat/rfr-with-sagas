@@ -13,6 +13,6 @@ export function* homeFlow() {
 
 export default function* home() {
   console.log("home saga");
-  yield all([homeInit(), homeFlow()]);
-  // yield all([homeFlow()]);
+  // yield all([homeInit(), homeFlow()]);
+  yield all([homeFlow()]);
 }

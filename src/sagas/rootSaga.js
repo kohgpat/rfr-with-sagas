@@ -1,6 +1,9 @@
-import { fork } from "redux-saga/effects";
-import { routes } from "./routes";
+import { all } from "redux-saga/effects";
+import global from "./global";
+import routes from "./routes";
+import home from "./home";
 
 export default function* rootSaga() {
-  yield fork(routes);
+  yield all([global(), home(), routes()]);
+  // yield fork(routes);
 }
